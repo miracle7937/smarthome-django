@@ -158,11 +158,14 @@ PAYSTACK_PUBLIC_KEY = 'sk_test_a956d4bcd663de584c11fbdf26d9473bf3061d49'
 PAYSTACK_SECRET_KEY = 'pk_test_431e7ca6f6439571853622ed39dc2ac8a2aac36a'
 
 # S3 BUCKETS CONFIG
+'''
 AWS_ACCESS_KEY_ID = 'AKIAUWBFPX4LMSIZYT65'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'smarthomes-test'
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
+'''
+
 # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 # STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
