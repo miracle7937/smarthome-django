@@ -1,0 +1,132 @@
+{% extends 'base.html' %}{% load static %} {% block content %}
+<script src="https://js.paystack.co/v1/inline.js"></script>
+
+<style>
+    .center {
+        width: auto;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .items {
+        padding-left: 40px;
+        padding-right: 40px;
+        width: auto;
+        padding-bottom: 40px;
+    }
+</style>
+
+<div class="property_details_banner">
+
+    <div class="container">
+
+
+        {% for sub in subs %}
+
+        <div class="items">
+            <div class="card  ">
+
+                <!-- Card image -->
+                <div class="view overlay  ">
+                    <img class="card-img-top" style="height: 400px;" src="{{sub.house.image1.url}}" alt="Card image cap">
+                    <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+
+                <!-- Card content -->
+                <div class="card-body">
+
+                    <!-- Title -->
+                    <h4 class="card-title">{{sub.fullName}}</h4>
+                    <!-- Text -->
+                    <p class="card-text">You subscribe for a {{sub.fullName}} on september {{ sub.date }} at {{sub.address}}
+                    </p>
+                    <div class="center ">
+                        <form>
+                            <a href="#" onclick="payWithPaystackMonthly('{{sub.user.email}}', '{{sub.phoneNumber}}', '{{sub.pk}}' , '{{sub.amount_to_be_paid}}' )" class="btn btn-primary">Monthly pay</a>
+                        </form>
+
+                        <form> <a href="#" onclick="payWithPaystackOutRight('{{sub.user.email}}', '{{sub.phoneNumber}}' , '{{sub.pk}}', '{{sub.amount}}', '{{sub.total_paid}}' )" class="btn btn-primary">Pay off</a> </form>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+            <!-- Card -->
+        </div>
+        {% endfor %}
+    </div>
+
+
+    <script>
+        function payWithPaystackMonthly(email, number, pk, amount) {
+            console.log(amount)
+
+            var handler = PaystackPop.setup({
+                key: 'pk_test_431e7ca6f6439571853622ed39dc2ac8a2aac36a',
+                email: email,
+                amount: amount * 100,
+                currency: "NGN",
+                ref: '' + Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+                metadata: {
+                    custom_fields: [{
+                        display_name: number,
+                        variable_name: number,
+                        value: number
+                    }]
+                },
+                callback: function(response) {
+                    path = 'paystack/success/' + pk
+                    console.log(path)
+                    window.location.replace(path);
+
+
+                    alert('success. transaction ref is ' + response.reference);
+                },
+                onClose: function() {
+                    alert('window closed');
+                }
+            });
+            handler.openIframe();
+        }
+    </script>
+
+
+    <script>
+        function payWithPaystackOutRight(email, number, pk, total_amount, amount_payed) {
+
+
+            var handler = PaystackPop.setup({
+                key: 'pk_test_431e7ca6f6439571853622ed39dc2ac8a2aac36a',
+                email: email,
+                amount: (total_amount - amount_payed) * 100,
+                currency: "NGN",
+                ref: '' + Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+                metadata: {
+                    custom_fields: [{
+                        display_name: number,
+                        variable_name: number,
+                        value: number
+                    }]
+                },
+                callback: function(response) {
+                    path = 'paystack/success/' + pk
+                    console.log(path)
+                    window.location.replace(path);
+
+
+                    alert('success. transaction ref is ' + response.reference);
+                },
+                onClose: function() {
+                    alert('window closed');
+                }
+            });
+            handler.openIframe();
+        }
+    </script>
+
+
+</div> {%endblock%}

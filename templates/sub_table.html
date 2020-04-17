@@ -1,0 +1,104 @@
+{% extends 'base.html' %}{% load static %} {% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--========================================================== =====================================-->
+
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'table/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'table/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'table/vendor/animate/animate.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'table/vendor/select2/select2.min.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'table/vendor/perfect-scrollbar/perfect-scrollbar.css' %}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'table/css/util.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'table/css/main.css' %}">
+    <!--===============================================================================================-->
+    <Style>
+        .title {
+            color: white;
+            padding: auto;
+            text-align: center;
+            padding-bottom: 40px;
+        }
+    </Style>
+</head>
+
+<body>
+    <div class="property_details_banner">
+
+        <div class="container">
+
+            <div class="title">
+                <h3> Payment Breakdown for {{property}}</h3>
+            </div>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">S/N</th>
+                        <th scope="col">
+                            <h3>First</h3>
+                        </th>
+                        <th scope="col">
+                            <h3>Month</h3>
+                        </th>
+                        <th scope="col">
+                            <h3>Percentage</h3>
+                        </th>
+                        <th scope="col">
+                            <h3>Status</h3>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in breakdowns %}
+
+                    <tr class="bg-info text-white">
+                        <th scope="row">{{i.pk}}</th>
+                        <td>Mark</td>
+                        <td>{{i.date|date:"M, Y" }}</td>
+                        <td> {{i.percentage}}</td>
+
+                        <td> {% if i.payment_month %} <button type="button" class="btn btn-success">Success</button>{% endif %}</td>
+                    </tr>
+                    {% endfor %}
+
+
+                </tbody>
+            </table>
+
+
+
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
+{% endblock %}
+<!--===============================================================================================-->
+<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/bootstrap/js/popper.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/select2/select2.min.js"></script>
+<!--==============================================================================================-->
+<script src="vendor/perfect-sc rollbar/perfect-scrollbar.min.js"></script>
+<script>
+    $('.js-pscroll').each(function() {
+                var ps = new PerfectScro llbar(this);
+</script>
+<!--===============================================================================================-->
+<sc ript src="js/main.js">
+    </script>

@@ -1,0 +1,373 @@
+{% load static %}
+<!doctype html>
+
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Real state</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{% static 'test/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'test/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'test/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'test/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'test/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'test/css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'test/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'test/css/gijgo.css' %}">
+    <link rel="stylesheet" href="{% static 'test/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'test/css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'test/css/slicknav.css' %}">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
+
+    <link rel="stylesheet" href="{% static 'test/css/style.css' %}">
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+    <!-- header-start -->
+    <header>
+        <div class="header-area ">
+            <div class="header-top_area d-none d-lg-block">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-5 col-md-5 ">
+                            <div class="header_left">
+                                <p>Welcome to Conbusi consulting service</p>
+                            </div>
+                        </div>
+                        <div class="col-xl-7 col-md-7">
+                            <div class="header_right d-flex">
+                                <div class="short_contact_list">
+                                    <ul>
+                                        <li>
+                                            <a href="#"> <i class="fa fa-envelope"></i> info@docmed.com</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"> <i class="fa fa-phone"></i> 1601-609 6780</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="social_media_links">
+                                    <a href="#">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="fa fa-google-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="sticky-header" class="main-header-area">
+                <div class="container">
+                    <div class="header_bottom_border">
+                        <div class="row align-items-center">
+                            <div class="col-xl-3 col-lg-2">
+                                <div class="logo">
+                                    <a href="index.html">
+                                        <img src="img/logo.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-7">
+                                <div class="main-menu  d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="{% url 'home' %}">home</a></li>
+                                            <li><a class="active" href="#">pages <i class="ti-angle-down"></i></a>
+                                                <ul class="submenu">
+                                                    <li><a href="about.html">about</a></li>
+                                                    <li><a href="property_details.html">property details</a></li>
+                                                    <li><a href="elements.html">elements</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="Property.html">Property</a></li>
+                                            <li><a href="#">blog <i class="ti-angle-down"></i></a>
+                                                <ul class="submenu">
+                                                    <li><a href="blog.html">blog</a></li>
+                                                    <li><a href="single-blog.html">single-blog</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-3 d-none d-lg-block">
+                                <div class="Appointment">
+                                    <div class="search_btn">
+                                        <a href="#">
+                                            <i class="ti-search"></i>
+                                        </a>
+                                    </div>
+                                    <div class="book_btn d-none d-lg-block">
+                                        <a href="#">Subscriptions</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-end -->
+
+    <!-- bradcam_area  -->
+    <div class="property_details_banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 col-md-8 col-lg-6">
+                    <div class="comfortable_apartment">
+                        <h4>{{house.title}}</h4>
+                        <p> <img src="{%   static 'img/svg_icon/location.svg'   %}" alt=""> {{house.location}}</p>
+                        <div class="quality_quantity d-flex">
+                            <div class="single_quantity">
+                                <img src="{%   static 'img/svg_icon/color_box.svg'   %}" alt="">
+                                <span>{{house.size}} Sqft</span>
+                            </div>
+                            <div class="single_quantity">
+                                <img src="{%   static 'img/svg_icon/color_bed.svg'   %}" alt="">
+                                <span> {{house.bedroom}} bed</span>
+                            </div>
+                            <div class="single_quantity">
+                                <img src="{%   static 'img/svg_icon/color_bath.svg'   %}" alt="">
+                                <span>{{house.bathroom}} Bath</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-md-4 col-lg-6">
+                    <div class="prise_quantity">
+                        <h4>₦{{house.price}}</h4>
+                        <a href="subscribe/">Subscribe</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
+
+    <!-- details  -->
+    <div class="property_details">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="property_banner">
+                        <div class="property_banner_active owl-carousel">
+                            <div class="single_property">
+                                <img src="{% static 'img/banner/property_details.png' %}" alt="">
+                            </div>
+                            <div class="single_property">
+                                <img src="{% static 'img/banner/property_details.png' %}" alt="">
+                            </div>
+                            <div class="single_property">
+                                <img src="{% static 'img/banner/property_details.png' %}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+                    <div class="details_info">
+                        <h4>Description</h4>
+                        <p>While there are countless Trips out there in charity shops and car boot sales, you can also buy refurbished examples, with replacement leatherette available in all colors. I love my Trip and use it regularly something so refreshing
+                            about its simplicity.</p>
+                        <p>While there are countless Trips out there in charity shops and car boot sales, you can also buy refurbished examples, with replacement leatherette available in all colors. I love my Trip and use it regularly something so refreshing
+                            about its simplicity.</p>
+                        <p>While there are countless Trips out there in charity shops and car boot sales, you can also buy refurbished examples, with replacement leatherette available in all colors. I love my Trip and use it regularly something so refreshing
+                            about its simplicity.</p>
+
+                    </div>
+
+                    <div class="contact_field">
+                        <h3>Contact Us</h3>
+                        <form action="#">
+                            <div class="row">
+                                <div class="col-xl-6 col-md-6">
+                                    <input type="text" placeholder="Your Name">
+                                </div>
+                                <div class="col-xl-6 col-md-6">
+                                    <input type="email" placeholder="Email">
+                                </div>
+                                <div class="col-xl-12">
+                                    <input type="number" placeholder="Phone no.">
+                                </div>
+                                <div class="col-xl-12">
+                                    <textarea name="" id="" cols="30" rows="10" placeholder="Message"></textarea>
+                                </div>
+                                <div class="col-xl-12">
+                                    <div class="send_btn">
+                                        <button type="submit" class="send_btn">Send</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /details  -->
+
+    <!-- contact_action_area  -->
+
+    <!-- footer start -->
+    <footer class="footer">
+        <div class="footer_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col-md-6 col-lg-3">
+                        <div class="footer_widget">
+                            <div class="footer_logo">
+                                <a href="#">
+                                    <img src="img/footer_logo.png" alt="">
+                                </a>
+                            </div>
+                            <p>
+                                <a href="#">conbusi@support.com</a> <br> +10 873 672 6782 <br> 600/D, Green road, NewYork
+                            </p>
+                            <div class="socail_links">
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <i class="ti-facebook"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="ti-twitter-alt"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-3">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                Services
+                            </h3>
+                            <ul>
+                                <li><a href="#">Marketing & SEO</a></li>
+                                <li><a href="#"> Startup</a></li>
+                                <li><a href="#">Finance solution</a></li>
+                                <li><a href="#">Food</a></li>
+                                <li><a href="#">Travel</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-6 col-lg-2">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                Useful Links
+                            </h3>
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#"> Contact</a></li>
+                                <li><a href="#">Appointment</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6 col-lg-4">
+                        <div class="footer_widget">
+                            <h3 class="footer_title">
+                                Subscribe
+                            </h3>
+                            <form action="#" class="newsletter_form">
+                                <input type="text" placeholder="Enter your mail">
+                                <button type="submit">Subscribe</button>
+                            </form>
+                            <p class="newsletter_text">Esteem spirit temper too say adieus who direct esteem esteems luckily.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copy-right_text">
+            <div class="container">
+                <div class="footer_border"></div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <p class="copy_right text-center">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--/ footer end  -->
+
+    <!-- link that opens popup -->
+    <!-- JS here -->
+    <script src="{% static 'test/js/vendor/modernizr-3.5.0.min.js' %}"></script>
+    <script src="{% static 'test/js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'test/js/popper.min.js' %}"></script>
+    <script src="{% static 'test/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'test/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'test/js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'test/js/ajax-form.js' %}"></script>
+    <script src="{% static 'test/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'test/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'test/js/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'test/js/scrollIt.js' %}"></script>
+    <script src="{% static 'test/js/jquery.scrollUp.min.js' %}"></script>
+    <script src="{% static 'test/js/wow.min.js' %}"></script>
+    <script src="{% static 'test/js/nice-select.min.js' %}"></script>
+    <script src="{% static 'test/js/jquery.slicknav.min.js' %}"></script>
+    <script src="{% static 'test/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'test/js/plugins.js' %}"></script>
+    <!-- <script src="js/gijgo.min.js"></script> -->
+    <script src="{% static 'test/js/slick.min.js' %}"></script>
+
+
+
+    <!--contact js-->
+    <script src="{% static 'test/js/contact.js' %}"></script>
+    <script src="{% static 'test/js/jquery.ajaxchimp.min.js' %}"></script>
+    <script src="{% static 'test/js/jquery.form.js' %}"></script>
+    <script src="{% static 'test/js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'test/js/mail-script.js' %}"></script>
+
+
+    <script src="{% static 'test/js/main.js' %}"></script>
+</body>
+
+</html>
