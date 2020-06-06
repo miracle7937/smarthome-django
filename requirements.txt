@@ -8,7 +8,7 @@ chardet==3.0.4
 colorama==0.4.3
 dj-database-url==0.5.0
 dj-static==0.0.6
-Django==3.0.5
+Django==3.0.7
 django-filter==2.2.0
 django-heroku==0.3.1
 -e git+https://github.com/gbozee/django-paystack.git@fd2d44767e4c3531add523181eda8001c5ef6170#egg=django_paystack
